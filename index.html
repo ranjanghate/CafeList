@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+
+  </head>
+  <body>
+    <h1>Your Favourite Cafes</h1>
+    <div class="content">
+      <form id="add-cafe-form"></form>
+      <ul id="cafe-list"></ul>
+    </div>
+    <script src="app.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyA9xW0HqD1_QGM2cnFsmFpW_8c5UoiWrCc",
+        authDomain: "cafelist-1c88e.firebaseapp.com",
+        projectId: "cafelist-1c88e",
+        storageBucket: "cafelist-1c88e.appspot.com",
+        messagingSenderId: "947590407771",
+        appId: "1:947590407771:web:9c7c9f6c062dd1142ec17e",
+        measurementId: "G-54F5WF81JW"
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      db.setting({ timestampsInSnapshots: true })
+  </script>
+  </body>
+</html>
