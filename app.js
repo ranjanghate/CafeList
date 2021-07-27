@@ -26,9 +26,15 @@ function renderCafe(doc){
   })
 };
 
-db.collection('cafes').get().then((snapshot) => {
-  snapshot.docs.forEach( doc => {
-    renderCafe(doc);
+db.collection('cafes').orderBy('name').onSnapshot(snapshot => {
+  let changes = snapshot.docChanges();
+  changes.forEach(snap => {
+    if(snap.type == 'added') {
+      renderCafe(snap.doc);
+    } else if(snap.type == 'removed') {
+      let li = cafeList.querySelector('[data-id=' + snap.doc.id + ']');
+      cafeList.removeChild(li);
+    }
   });
 });
 
